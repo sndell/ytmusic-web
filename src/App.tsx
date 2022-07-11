@@ -1,11 +1,9 @@
 import React from 'react';
 import Sidebar from './common/sidebar/components';
 import styled from 'styled-components';
-import {
-  BrowserRouter,
-  // Route,
-  Routes,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Settings from './pages/settings';
+import Api from './pages/settings/api';
 
 function App() {
   return (
@@ -14,7 +12,9 @@ function App() {
         <Sidebar />
         <Routes>
           {/* <Route index element={<Home />} /> */}
-          {/* <Route path="/settings/:category" element={<Settings />} /> */}
+          <Route path="/settings" element={<Settings />}>
+            <Route path="api" element={<Api />} />
+          </Route>
           {/* <Route path="/playlist/:playlistId" element={<Playlist />} /> */}
         </Routes>
       </BrowserRouter>
@@ -26,6 +26,7 @@ const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  display: flex;
 `;
 
 export default App;

@@ -1,23 +1,19 @@
 import React from 'react';
 import { IconType } from 'react-icons';
-import styled from 'styled-components';
-import { useLink } from '../../../hooks/useLink';
+import styled, { css } from 'styled-components';
+import { useLink } from '../../hooks/useLink';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  Icon: IconType;
   text: string;
   path: string;
 };
 
-const Row: React.FC<Props> = ({ Icon, text, path }) => {
-  const link = useLink(path);
+const Row: React.FC<Props> = ({ text, path }) => {
+  const link = useLink(`/settings/${path}`);
 
   return (
     <Wrapper $active={link.active} to={path}>
-      <Container>
-        <Icon />
-      </Container>
       <h1>{text}</h1>
     </Wrapper>
   );
@@ -26,38 +22,32 @@ const Row: React.FC<Props> = ({ Icon, text, path }) => {
 const Wrapper = styled(Link)<{ $active: boolean }>`
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  height: 40px;
+  padding-left: 16px;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
-
-  svg,
-  h1 {
-    color: ${({ $active, theme }) =>
-      $active ? theme.colors.text.primary : theme.colors.text.secondary};
-  }
-
-  svg {
-    font-size: 24px;
-  }
+  ${({ $active, theme }) =>
+    $active
+      ? css`
+          background-color: ${theme.colors.hover};
+        `
+      : undefined}
 
   h1 {
     font-size: 20px;
     font-weight: 400;
+    color: ${({ $active, theme }) =>
+      $active ? theme.colors.text.primary : theme.colors.text.secondary};
   }
 
   :hover {
-    h1,
-    svg {
+    background-color: ${({ theme }) => theme.colors.hover};
+
+    h1 {
       color: ${({ theme }) => theme.colors.text.primary};
     }
   }
-`;
-
-const Container = styled.div`
-  height: 24px;
-  width: 24px;
-  margin: 0 16px;
 `;
 
 export default Row;
