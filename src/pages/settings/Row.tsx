@@ -1,7 +1,6 @@
 import React from 'react';
-import { IconType } from 'react-icons';
 import styled, { css } from 'styled-components';
-import { useLink } from '../../hooks/useLink';
+import { useActive } from '../../hooks/useActive';
 import { Link } from 'react-router-dom';
 
 type Props = {
@@ -10,10 +9,10 @@ type Props = {
 };
 
 const Row: React.FC<Props> = ({ text, path }) => {
-  const link = useLink(`/settings/${path}`);
+  const { active } = useActive(`/settings/${path}`);
 
   return (
-    <Wrapper $active={link.active} to={path}>
+    <Wrapper $active={active} to={path}>
       <h1>{text}</h1>
     </Wrapper>
   );

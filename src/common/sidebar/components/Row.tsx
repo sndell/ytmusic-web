@@ -1,8 +1,8 @@
 import React from 'react';
-import { IconType } from 'react-icons';
 import styled from 'styled-components';
-import { useLink } from '../../../hooks/useLink';
+import { useActive } from '../../../hooks/useActive';
 import { Link } from 'react-router-dom';
+import { IconType } from 'react-icons';
 
 type Props = {
   Icon: IconType;
@@ -11,10 +11,10 @@ type Props = {
 };
 
 const Row: React.FC<Props> = ({ Icon, text, path }) => {
-  const link = useLink(path);
+  const { active } = useActive(path);
 
   return (
-    <Wrapper $active={link.active} to={path}>
+    <Wrapper $active={active} to={path}>
       <Container>
         <Icon />
       </Container>
