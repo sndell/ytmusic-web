@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useActive } from '../../../hooks/useActive';
+import { useActive } from '../../hooks/useActive';
 import { Link } from 'react-router-dom';
 import { IconType } from 'react-icons';
 
