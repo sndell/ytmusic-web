@@ -15,7 +15,7 @@ const Sidebar = () => {
     <Wrapper>
       {/* <Header /> */}
       <Rows>
-        <Row Icon={IoHome} text="Home" path="/home" />
+        <Row Icon={IoHome} text="Home" path="/" />
         <Row Icon={BiLibrary} text="Library" path="/library" />
         <Row Icon={IoSearchSharp} text="Search" path="/search" />
         <Row Icon={MdSettings} text="Settings" path="/settings/api" />

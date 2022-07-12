@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Settings from './pages/settings/components';
 import Api from './pages/settings/components/api';
+import Home from './pages/home/components';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Sidebar />
         <Routes>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
           <Route path="/settings" element={<Settings />}>
             <Route path="api" element={<Api />} />
           </Route>
