@@ -5,19 +5,8 @@ from ytmusicapi.helpers import *
 path = os.path.dirname(os.path.realpath(__file__)) + os.sep
 
 
-def get_auth_headers(headers_raw=None):
-    contents = []
-    if not headers_raw:
-        eof = "Ctrl-D" if platform.system() != "Windows" else "'Enter, Ctrl-Z, Enter'"
-        print("Please paste the request headers from Firefox and press " + eof + " to continue:")
-        while True:
-            try:
-                line = input()
-            except EOFError:
-                break
-            contents.append(line)
-    else:
-        contents = headers_raw.split('\n')
+def get_auth_headers(headers_raw):
+    contents = headers_raw.split('\n')
 
     try:
         user_headers = {}

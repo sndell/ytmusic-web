@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

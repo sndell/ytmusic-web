@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import axios, { AxiosError } from 'axios';
+import { useDispatch } from 'react-redux';
+import { authenticate } from '../../../../../store/auth';
 
 const Api = () => {
+  const dispatch = useDispatch();
+
   const handleAuth = async () => {
     const clipboard = (await navigator.clipboard.readText()).replace(
       /(\r)/g,
@@ -15,13 +19,8 @@ const Api = () => {
           headers: clipboard,
         },
       })
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem('headers', JSON.stringify(res.data));
-      })
-      .catch((e: AxiosError) => {
-        console.log(e.message);
-      });
+      .then(({ data }) => dispatch(authenticate(data)))
+      .catch((e: AxiosError) => console.log(e.message));
   };
 
   return (

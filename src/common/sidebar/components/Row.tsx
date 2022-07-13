@@ -26,7 +26,7 @@ const Row: React.FC<Props> = ({ Icon, text, path }) => {
 const Wrapper = styled(Link)<{ $active: boolean }>`
   display: flex;
   align-items: center;
-  padding: 8px 0;
+  padding: 6px 0;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
@@ -35,15 +35,15 @@ const Wrapper = styled(Link)<{ $active: boolean }>`
   h1 {
     color: ${({ $active, theme }) =>
       $active ? theme.colors.text.primary : theme.colors.text.secondary};
+    transition: color 0.2s;
   }
 
   svg {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   h1 {
-    font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
   }
 
   :hover {
