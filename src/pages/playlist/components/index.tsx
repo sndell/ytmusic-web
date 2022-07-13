@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { usePlaylist } from '../hooks/usePlaylist';
 import Details from './Details';
+import List from './List';
 
 const Playlist = () => {
   const playlist = usePlaylist();
@@ -10,6 +11,7 @@ const Playlist = () => {
     return (
       <Wrapper>
         <Details playlist={playlist} />
+        <List playlist={playlist} />
       </Wrapper>
     );
   }
@@ -17,7 +19,10 @@ const Playlist = () => {
 };
 
 const Wrapper = styled.div`
-  color: red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: overlay;
 `;
 
 export default Playlist;

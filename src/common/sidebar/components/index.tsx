@@ -18,10 +18,6 @@ type Playlist = {
 const Sidebar = () => {
   const playlists: Playlist[] = usePlaylists();
 
-  useEffect(() => {
-    console.log(playlists);
-  }, [playlists]);
-
   return (
     <Wrapper>
       {/* <Header /> */}

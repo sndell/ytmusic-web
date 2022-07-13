@@ -9,7 +9,8 @@ export const usePlaylist = () => {
   const [controller, setController] = useState(new AbortController());
 
   useEffect(() => {
-
+    const local = JSON.parse(localStorage.getItem(params.playlistId!)!);
+    if (local) setPlaylist(local)
     controller.abort();
     const newController = new AbortController();
     setController(newController);
