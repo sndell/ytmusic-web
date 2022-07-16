@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { usePlaylist } from '../hooks/usePlaylist';
 import Details from './Details';
-import List from './List';
+import List from './list/components';
 
 const Playlist = () => {
   const playlist = usePlaylist();

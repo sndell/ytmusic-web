@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './ListItem';
 import styled from 'styled-components';
-import { IColor, IPlaylist } from '../../../types/definition/playlist';
+import { IColor, IPlaylist } from '../../../../../types/definition/playlist';
 
 interface IProps {
   playlist: IPlaylist;

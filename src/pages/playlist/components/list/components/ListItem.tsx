@@ -1,8 +1,9 @@
 import React from 'react';
 import { MdExplicit, MdError } from 'react-icons/md';
 import styled, { css } from 'styled-components';
-import { ITrack } from '../../../types/definition/playlist';
-import getArtistsString from '../../../common/utils/artists-to-string';
+import getArtistsString from '../../../../../common/utils/artists-to-string';
+import { ITrack } from '../../../../../types/definition/playlist';
+import ListItemActions from './ListItemActions';
 
 interface IProps {
   track: ITrack;
@@ -44,10 +45,19 @@ const ListItem = ({ track }: IProps) => {
             : 'unavailable'}
         </h1>
       </Date>
-      <Duration>{track.duration && <h2>{track.duration}</h2>}</Duration>
+      <Container>
+        <ListItemActions track={track} />
+        {track.duration && <h1>{track.duration}</h1>}
+      </Container>
     </Wrapper>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
 
 export const Wrapper = styled.div<IStyleProps>`
   display: grid;
@@ -60,11 +70,20 @@ export const Wrapper = styled.div<IStyleProps>`
 
   &:hover {
     background-color: #ffffff18;
-    cursor: pointer;
+
+    ${Container} {
+      div {
+        display: flex;
+      }
+    }
   }
 
   @media screen and (max-width: 992px) {
     grid-template-columns: 6fr 4fr 2fr;
+
+    &:hover {
+      grid-template-columns: 6fr 3fr 3fr;
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -142,8 +161,9 @@ export const Artists = styled.div`
   align-items: center;
   gap: 4px;
 
-  h1 {
-    height: 18px;
+  h1,
+  svg {
+    min-width: 18px;
     color: ${({ theme }) => theme.colors.text.secondary};
   }
 `;
@@ -166,10 +186,6 @@ export const Date = styled.div`
   @media screen and (max-width: 992px) {
     display: none;
   }
-`;
-
-export const Duration = styled.div`
-  justify-self: end;
 `;
 
 export default ListItem;

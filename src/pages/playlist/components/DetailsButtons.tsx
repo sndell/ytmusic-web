@@ -36,7 +36,7 @@ export const PlayButton = styled.div`
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.text.primary};
   height: 32px;
-  width: 32px;
+  min-width: 32px;
   border-radius: 4px;
   display: flex;
   align-items: center;

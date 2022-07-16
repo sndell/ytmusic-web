@@ -39,6 +39,7 @@ const Details = ({ playlist }: IProps) => {
 export const Wrapper = styled.div<IStyleProps>`
   padding: 16px;
   display: flex;
+  /* overflow-x: hidden; */
   background: linear-gradient(
     180deg,
     rgb(
@@ -69,6 +70,7 @@ export const Info = styled.div`
   margin-left: 16px;
   flex-direction: column;
   justify-content: end;
+  overflow: hidden;
 `;
 
 export const Text = styled.div`
