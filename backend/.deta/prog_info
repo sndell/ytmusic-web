@@ -1,0 +1,1 @@
+{"id":"abd06e14-645e-4065-9989-5cd2ad98f3b4","space":25795,"runtime":"python3.9","name":"backend","path":"ibb072","project":"a0cw2onv","account":"144798365827","region":"eu-central-1","deps":["colorthief==0.2.1","fastapi==0.78.0","uvicorn==0.18.2","ytmusicapi==0.22.0"],"envs":null,"public":true,"log_level":"debug","cron":""}

@@ -6,6 +6,7 @@ import {
   MdThumbDown,
   MdOutlineThumbUp,
   MdOutlineThumbDown,
+  MdMoreVert,
 } from 'react-icons/md';
 
 interface IProps {
@@ -29,13 +30,16 @@ const ListItemActions = ({ track }: IProps) => {
         <MdOutlineThumbDown />
       )}
       {track.likeStatus === 'LIKE' ? <MdThumbUp /> : <MdOutlineThumbUp />}
+      <MdMoreVert />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div<IStyledProps>`
-  margin-right: 8px;
-  gap: 8px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  margin-right: 32px;
   ${({ enabled }) =>
     !enabled
       ? css`
@@ -46,8 +50,16 @@ const Wrapper = styled.div<IStyledProps>`
         `};
 
   svg {
-    font-size: 22px;
+    color: ${({ theme }) => theme.colors.text.secondary};
     cursor: pointer;
+    font-size: 24px;
+
+    :nth-child(1) {
+      margin-right: 16px;
+    }
+    :nth-child(2) {
+      margin-right: 8px;
+    }
   }
 `;
 

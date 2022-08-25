@@ -73,6 +73,7 @@ const Rows = styled.div`
 `;
 
 const Playlists = styled.div`
+  overflow-y: auto;
   overflow-y: overlay;
   padding: 8px 0 4px 0;
 `;

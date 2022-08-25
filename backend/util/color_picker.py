@@ -1,9 +1,11 @@
 from colorthief import ColorThief
-import urllib
+from urllib.request import urlopen
+import io
 
 def get_color(url):
-    urllib.request.urlretrieve(url, "img.png")
-    color_thief = ColorThief('img.png')
+    fd = urlopen(url)
+    f = io.BytesIO(fd.read())
+    color_thief = ColorThief(f)
     palette = color_thief.get_palette(color_count=20, quality=6)
 
     highest = 0

@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  padding-bottom: 8px;
 `;
 
 const Gradient = styled.div<IStyleProps>`
@@ -70,23 +71,29 @@ const Headers = styled.div`
   display: grid;
   grid-template-columns: 6fr 4fr 2fr 2fr;
   column-gap: 16px;
+
   h2 {
     color: ${({ theme }) => theme.colors.text.secondary};
     text-transform: uppercase;
     font-size: 14px;
     /* font-weight: 500; */
   }
+
   h2:last-child {
     justify-self: end;
   }
-  @media screen and (max-width: 992px) {
+
+  @media screen and (max-width: 1040px) {
     grid-template-columns: 6fr 4fr 2fr;
+
     h2:nth-child(3) {
       display: none;
     }
   }
+
   @media screen and (max-width: 768px) {
     grid-template-columns: 6fr 32px;
+
     h2:nth-child(2) {
       display: none;
     }
@@ -96,8 +103,8 @@ const Headers = styled.div`
 const Items = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
   padding-top: 14px;
+  gap: 8px;
 `;
 
 export default List;

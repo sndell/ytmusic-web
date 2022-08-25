@@ -55,6 +55,7 @@ const ListItem = ({ track }: IProps) => {
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   justify-content: end;
   align-items: center;
 `;
@@ -66,10 +67,10 @@ export const Wrapper = styled.div<IStyleProps>`
   align-items: center;
   color: ${({ theme }) => theme.colors.text.secondary};
   margin: 0 16px;
-  border-radius: 4px;
 
   &:hover {
-    background-color: #ffffff18;
+    /* background-color: #ffffff18; */
+    color: ${({ theme }) => theme.colors.text.primary};
 
     ${Container} {
       div {
@@ -78,7 +79,7 @@ export const Wrapper = styled.div<IStyleProps>`
     }
   }
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 1040px) {
     grid-template-columns: 6fr 4fr 2fr;
 
     &:hover {
@@ -183,7 +184,7 @@ export const Album = styled.div`
 `;
 
 export const Date = styled.div`
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 1040px) {
     display: none;
   }
 `;
